@@ -2,9 +2,11 @@
 
 This project is an example on how to connect and communicate with RockIOT platform.
 
+Project is developed using Python language and Paho MQTT client.
+
 It is intended for device developers that will implement similar code into device firmware.
 
-Project is developed using Python language and Paho MQTT client.
+It is still Work In Progress and may be a good way to initiate communication and gather collective feedback!
 
 
 ## Developer environment
@@ -22,3 +24,7 @@ Then Install requirements to make Pipfile and Pipfile.lock
 ```
 pipenv install -r requirements.txt
 ```
+
+## Docker
+
+One can also build and run docker file available in the project root.
