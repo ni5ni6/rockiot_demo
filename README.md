@@ -41,7 +41,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 Once in promt, simply import file and call function to get random test payload:
 ```
 >>> import mqtt_demo_readings
->>> mqtt_demo_readings.random_sensor_data('device101','client101')
+>>> mqtt_demo_readings.random_sensor_data('client101')
 '{"client_id":"client101","sent_at":"2021-09-02 07:04:40.002703","data":{"temperature":"13.65","humidity":"2.1","NO2":"1.8","SO2":"2.5","PM10":"2.4","PM25":"2.4"}}'
 ```
 
