@@ -25,7 +25,7 @@ BROKER_DEVICE_INGEST_TOPIC = os.getenv("BROKER_DEVICE_INGEST_TOPIC", default='v1
 DEVICE_ID = os.getenv("DEVICE_ID", default='device100')
 DEVICE_PASS = os.getenv("DEVICE_PASS", default='device100pass')
 
-DEMO_SLEEP_SECONDS = int(os.getenv("DEMO_SLEEP_SECONDS", default='5'))
+DEMO_SLEEP_SECONDS = int(os.getenv("DEMO_SLEEP_SECONDS", default='60'))
 DEMO_IS_SSL = bool(os.getenv("DEMO_IS_SSL", default='True'))
 
 LOG_FORMAT = '%(levelname)s %(asctime)s %(module)s %(name)s %(process)d %(thread)d %(message)s'
@@ -143,7 +143,7 @@ class MqttDemo(object):
 
     def publish_activate_action(self):
         """Publishes activation request to actions topic"""
-        message = DeviceAction("activation_request", self.client_id, DEVICE_ID, datetime.now().isoformat()).to_json()
+        message = DeviceAction("activation_request", self.client_id, DEVICE_ID, datetime.utcnow().isoformat()).to_json()
         self.client.publish(topic=BROKER_DEVICE_ACTIONS_TOPIC, payload=message)
         LOGGER.info("%s activate_request sent to topic %s: %s" % (self.identified, BROKER_DEVICE_ACTIONS_TOPIC, message))
         self.activating = True
